@@ -203,40 +203,39 @@ body {
     </footer>
 
   </div>
-<script>
-  <script>
-function revealOnScroll() {
-  const reveals = document.querySelectorAll('.reveal');
-  const windowHeight = window.innerHeight;
+<script> /* Typing effect */
+  const text = "Aditya Munde (AVM)";
+  let i = 0;
 
-  reveals.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
-    if (sectionTop < windowHeight - 100) {
-      section.classList.add('active');
+  function typingEffect() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typingEffect, 100);
     }
-  });
-}
-
-window.addEventListener('scroll', revealOnScroll);
-revealOnScroll();
-</script>
-
-const text = "Aditya Munde (AVM)";
-let i = 0;
-
-function typingEffect() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typingEffect, 100);
   }
-}
+  typingEffect();
 
-typingEffect();
+  /* Scroll animation */
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if (sectionTop < windowHeight - 100) {
+        section.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
 </script>
 
 </body>
 </html>
+
 
 
 
