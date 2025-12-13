@@ -31,7 +31,10 @@
       padding: 20px;
     }
 
-    header {
+    header 
+    <img src="profile.jpg" alt="Aditya Munde"
+     class="profile-pic">
+{
       padding: 40px 0;
     }
 
@@ -106,6 +109,21 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+    /* Profile Picture */
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid #4da6ff;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(77, 166, 255, 0.6);
+}
+
 
   </style>
 </head>
@@ -168,4 +186,5 @@ body {
   </div>
 </body>
 </html>
+
 
