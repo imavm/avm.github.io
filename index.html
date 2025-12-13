@@ -85,6 +85,28 @@
       margin: 60px 0 20px;
       color: #777;
     }
+    /* ===== INTERACTIVE EFFECTS ===== */
+
+.skill, .project {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.skill:hover, .project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(77, 166, 255, 0.25);
+}
+
+/* Smooth page load animation */
+body {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
   </style>
 </head>
 
@@ -146,3 +168,4 @@
   </div>
 </body>
 </html>
+
