@@ -135,7 +135,8 @@ body {
     <header>
       <img src="profile.jpg" alt="Aditya Munde" class="profile-pic">
 
-      <h1>Aditya Munde (AVM)</h1>
+      <h1 id="typing"></h1>
+
       <h2>Mechanical Engineering Student | Computer Engineering Diploma Graduate</h2>
 
       <p>
@@ -187,8 +188,24 @@ body {
     </footer>
 
   </div>
+<script>
+const text = "Aditya Munde (AVM)";
+let i = 0;
+
+function typingEffect() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typingEffect, 100);
+  }
+}
+
+typingEffect();
+</script>
+
 </body>
 </html>
+
 
 
 
