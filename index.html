@@ -126,6 +126,18 @@ body {
 }
 
 
+ /* Scroll animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
   </style>
 </head>
 
@@ -152,7 +164,8 @@ body {
       </div>
     </header>
 
-    <section>
+    <section class="reveal">
+
       <h3>Skills</h3>
       <div class="skills">
         <div class="skill">HTML</div>
@@ -163,7 +176,8 @@ body {
       </div>
     </section>
 
-    <section>
+    <section class="reveal">
+
       <h3>Projects</h3>
       <div class="projects">
         <div class="project">
@@ -178,7 +192,8 @@ body {
       </div>
     </section>
 
-    <section>
+    <section class="reveal">
+
       <h3>Contact</h3>
       <p>Email: your-email@example.com</p>
     </section>
@@ -189,6 +204,23 @@ body {
 
   </div>
 <script>
+  <script>
+function revealOnScroll() {
+  const reveals = document.querySelectorAll('.reveal');
+  const windowHeight = window.innerHeight;
+
+  reveals.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < windowHeight - 100) {
+      section.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+</script>
+
 const text = "Aditya Munde (AVM)";
 let i = 0;
 
@@ -205,6 +237,7 @@ typingEffect();
 
 </body>
 </html>
+
 
 
 
