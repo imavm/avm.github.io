@@ -169,6 +169,16 @@ p {
 .profile-pic:focus {
   outline: none;
 }
+.resume-icon {
+  font-size: 1.4rem;        /* bigger */
+  filter: grayscale(100%); /* darker */
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.resume-link:hover .resume-icon {
+  opacity: 1;
+}
 
 
   </style>
@@ -192,11 +202,16 @@ p {
       </p>
 
       <div style="margin-top: 10px;">
-  <a href="Aditya_Munde_Resume.pdf" target="_blank" title="View Resume">
-    📄 Resume
-  </a> ·
+  <a href="Aditya_Munde_Resume.pdf"
+     target="_blank"
+     title="View Resume"
+     class="resume-link">
+    <span class="resume-icon">📄</span>
+  </a>
+  ·
   <a href="https://github.com/imavm" target="_blank">GitHub</a>
 </div>
+
 
     </header>
 
@@ -296,6 +311,7 @@ p {
 
 </body>
 </html>
+
 
 
 
