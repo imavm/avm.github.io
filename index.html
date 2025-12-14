@@ -117,6 +117,30 @@ h3 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
+    /* Personal project clickable title */
+summary {
+  list-style: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #b983ff;        /* purple */
+  cursor: pointer;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:hover {
+  color: #d6b3ff;
+  transform: translateX(6px);
+}
+
+/* When project is opened */
+details[open] summary {
+  color: #e0c7ff;
+}
+
 
 .skill:hover, .project:hover {
   transform: translateY(-6px);
@@ -401,6 +425,7 @@ details[open] summary {
 
 </body>
 </html>
+
 
 
 
