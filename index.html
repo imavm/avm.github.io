@@ -179,6 +179,22 @@ p {
 .resume-link:hover .resume-icon {
   opacity: 1;
 }
+/* Collapsible project styling */
+details summary {
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 10px;
+  list-style: none; /* removes default arrow spacing */
+}
+
+details summary:hover {
+  opacity: 0.85;
+}
+
+/* Optional: subtle spacing when expanded */
+details[open] {
+  margin-top: 6px;
+}
 
 
   </style>
@@ -343,6 +359,7 @@ p {
 
 </body>
 </html>
+
 
 
 
