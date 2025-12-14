@@ -117,6 +117,39 @@ h3 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
+    /* Project title as card */
+details summary {
+  background: #161616;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-top: 10px;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #b983ff;
+
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+/* remove default arrow */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* hover effect like cards */
+details summary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(185, 131, 255, 0.35);
+  background: #1c1c1c;
+}
+
+/* when opened (clicked) */
+details[open] summary {
+  box-shadow: 0 10px 30px rgba(185, 131, 255, 0.45);
+  background: #1f1a2e;
+}
+
     /* Personal project clickable title */
 summary {
   list-style: none;
@@ -425,6 +458,7 @@ details[open] summary {
 
 </body>
 </html>
+
 
 
 
