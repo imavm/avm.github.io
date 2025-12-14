@@ -195,6 +195,29 @@ details summary:hover {
 details[open] {
   margin-top: 6px;
 }
+/* Smooth expand animation for project details */
+details > *:not(summary) {
+  overflow: hidden;
+  animation: expand 0.35s ease;
+}
+
+@keyframes expand {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+details summary {
+  transition: opacity 0.2s ease;
+}
+
+details[open] summary {
+  opacity: 0.9;
+}
 
 
   </style>
@@ -281,7 +304,6 @@ details[open] {
 
        <div class="project">
   <h4>Personal Learning Projects</h4>
-  <p>Small web and technical projects built to practice and learn.</p>
 
   <details>
     <summary>Personal Engineering Portfolio Website</summary>
@@ -359,6 +381,7 @@ details[open] {
 
 </body>
 </html>
+
 
 
 
