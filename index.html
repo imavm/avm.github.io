@@ -571,6 +571,14 @@ details[open] summary.project-summary::after {
   border-radius: 4px;
   color: #ccc;
 }
+ /* This targets the titles inside the Tool cards */
+.scroll-card h4 {
+  color: var(--accent); /* Makes the text Purple */
+  font-size: 1rem;      /* Adjust size if needed */
+  margin-bottom: 15px;  /* Adds space between title and buttons */
+  text-transform: uppercase; /* Optional: Makes it look like a label */
+  letter-spacing: 1px;       /* Optional: Spreads letters slightly */
+}
   </style>
 </head>
 
@@ -616,13 +624,16 @@ details[open] summary.project-summary::after {
   <div class="skill">Computational Logic</div>
 </div>
 
- <section id="tools">
+<section id="tools">
   <h2 class="section-title">Tools & Software</h2>
   
   <div class="tools-container">
     
     <div class="scroll-card">
       <h4>Engineering & Design</h4>
+      <p style="color:#888; font-size:0.85rem; margin-bottom:15px;">
+        For 3D modeling, assembly analysis, and manufacturing drafts.
+      </p>
       <div class="button-grid">
         <div class="tool-btn">CATIA V5</div>
         <div class="tool-btn">SolidWorks</div>
@@ -633,6 +644,9 @@ details[open] summary.project-summary::after {
 
     <div class="scroll-card">
       <h4>Development & Code</h4>
+      <p style="color:#888; font-size:0.85rem; margin-bottom:15px;">
+        For web interfaces, version control, and embedded logic.
+      </p>
       <div class="button-grid">
         <div class="tool-btn">HTML5 & CSS3</div>
         <div class="tool-btn">GitHub</div>
@@ -649,20 +663,29 @@ details[open] summary.project-summary::after {
   <h2 class="section-title">Key Projects</h2>
 
   <details class="scroll-card project-card-style">
-    
     <summary class="project-summary">
       <h3 class="project-title">Driver Drowsiness System</h3>
       <span class="project-tagline">Arduino Nano | Embedded Safety</span>
+      
       <div class="tech-stack-mini">
         <span class="tech-badge">C++</span>
-        <span class="tech-badge">Sensors</span>
+        <span class="tech-badge">IR Sensors</span>
+        <span class="tech-badge">Hardware</span>
       </div>
     </summary>
     
     <div class="project-content">
       <p class="project-desc">
-        Engineered a real-time safety device using Arduino Nano and IR sensors. 
-        The system detects eye-blink patterns and triggers an alarm to prevent driver fatigue.
+        <strong>The Problem:</strong> Driver fatigue is a leading cause of road accidents.
+        <br><br>
+        <strong>The Solution:</strong> Engineered a wearable real-time safety device using the <strong>Arduino Nano</strong> microcontroller. 
+        <br><br>
+        <strong>Skills Applied:</strong>
+        <ul style="margin-top:10px; padding-left:20px; color:#a1a1aa; font-size: 0.9rem;">
+          <li><strong>C++ Programming:</strong> Wrote optimized code to process sensor data with zero latency.</li>
+          <li><strong>Sensor Integration:</strong> Calibrated IR sensors to distinguish between normal blinking and prolonged eye closure.</li>
+          <li><strong>Circuit Design:</strong> Integrated a Piezo buzzer and LED system on a breadboard for immediate audio-visual alerts.</li>
+        </ul>
       </p>
     </div>
   </details>
@@ -670,22 +693,32 @@ details[open] summary.project-summary::after {
   <details class="scroll-card project-card-style">
     <summary class="project-summary">
       <h3 class="project-title">Personal Portfolio</h3>
-      <span class="project-tagline">Web Development</span>
+      <span class="project-tagline">Web Development | UI/UX</span>
+      
       <div class="tech-stack-mini">
         <span class="tech-badge">HTML5</span>
         <span class="tech-badge">CSS3</span>
+        <span class="tech-badge">Git</span>
       </div>
     </summary>
     
     <div class="project-content">
       <p class="project-desc">
-        Designed and deployed a responsive personal website to showcase engineering competencies, utilizing HTML, CSS, and version control.
+        <strong>The Goal:</strong> To create a professional digital identity that bridges Mechanical Engineering and Computer Science.
+        <br><br>
+        <strong>The Build:</strong> Designed and deployed a fully responsive website from scratch, avoiding heavy templates to ensure fast load times.
+        <br><br>
+        <strong>Skills Applied:</strong>
+        <ul style="margin-top:10px; padding-left:20px; color:#a1a1aa; font-size: 0.9rem;">
+          <li><strong>HTML5 & CSS3:</strong> utilized Flexbox and CSS Grid to create a layout that adapts perfectly to mobile and desktop screens.</li>
+          <li><strong>Dark Mode Design:</strong> Implemented a high-contrast dark theme (using CSS Variables) for visual comfort and modern aesthetics.</li>
+          <li><strong>Version Control:</strong> Managed source code and deployment updates using <strong>Git</strong> and <strong>GitHub Pages</strong>.</li>
+        </ul>
       </p>
     </div>
   </details>
 
 </section>
-
     <section class="reveal">
 
       <h3>Contact</h3>
@@ -764,6 +797,7 @@ details[open] summary.project-summary::after {
 
 </body>
 </html>
+
 
 
 
