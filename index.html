@@ -579,6 +579,23 @@ details[open] summary.project-summary::after {
   text-transform: uppercase; /* Optional: Makes it look like a label */
   letter-spacing: 1px;       /* Optional: Spreads letters slightly */
 }
+ .skills {
+  display: flex;           /* Uses Flexbox instead of Grid */
+  flex-wrap: wrap;         /* Allows items to wrap to the next line */
+  gap: 15px;               /* Space between the buttons */
+  justify-content: start;  /* Aligns items to the left (or use 'center') */
+  margin-top: 10px;
+}
+
+/* Optional: Ensure the buttons look good */
+.skill {
+  background-color: var(--card-bg);
+  border: 1px solid #333;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+}
   </style>
 </head>
 
@@ -614,16 +631,14 @@ details[open] summary.project-summary::after {
     </header>
 
    <section id="skills">
-  <h2 class="section-title">Skills & Domain</h2>
-
-  <div class="skills-grid scroll-card">
-    <div class="skill-card">Mechanical Design</div>
-    <div class="skill-card">Engineering Graphics & Drafting</div>
-    <div class="skill-card">Plastic Product Design</div>
-    <div class="skill-card">CAD & 3D Modeling</div>
-    <div class="skill-card">Computational Logic</div>
-  </div>
-
+  <h3>Skills & Domain</h3>
+<div class="skills scroll-card">
+  <div class="skill">Mechanical Design</div>
+  <div class="skill">Engineering Graphics & Drafting</div>
+  <div class="skill">Plastic Product Design</div>
+  <div class="skill">CAD & 3D Modeling</div>
+  <div class="skill">Computational Logic</div>
+</div>
 
 <section id="tools">
   <h2 class="section-title">Tools & Software</h2>
@@ -793,6 +808,7 @@ details[open] summary.project-summary::after {
 
 </body>
 </html>
+
 
 
 
