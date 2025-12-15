@@ -392,7 +392,83 @@ details[open] summary {
   border-radius: 4px;
   color: #ccc;
 }
+/* --- HOVER EFFECT FOR TOOLS (Like the other cards) --- */
+.tool-btn {
+  background-color: var(--card-bg); /* Matches your card color */
+  border: 1px solid #333;
+  padding: 15px;               /* More padding to look like a card */
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  cursor: pointer;
+  /* The Magic Animation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
 
+.tool-btn:hover {
+  transform: translateY(-5px); /* Moves up slightly */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Adds depth */
+  border-color: var(--accent); /* Highlights border purple */
+}
+
+
+/* --- COLLAPSIBLE PROJECTS (Accordion Style) --- */
+details.project-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border-left: 4px solid var(--accent);
+  overflow: hidden; /* Keeps the animation clean */
+  transition: background-color 0.3s ease;
+}
+
+/* Style the clickable header */
+summary.project-summary {
+  padding: 20px;
+  cursor: pointer;
+  list-style: none; /* Hides the default triangle */
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+/* Remove default marker in some browsers */
+summary.project-summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Hover effect for the Project Header */
+summary.project-summary:hover {
+  background-color: #25252b; /* Slightly lighter on hover */
+}
+
+/* Add a custom arrow icon */
+summary.project-summary::after {
+  content: '+'; 
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when open */
+details[open] summary.project-summary::after {
+  transform: rotate(45deg); /* Turns '+' into 'x' */
+}
+
+/* The hidden content */
+.project-content {
+  padding: 0 20px 20px 20px; /* Padding for the description */
+  border-top: 1px solid #333;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
   </style>
 </head>
 
@@ -478,36 +554,43 @@ details[open] summary {
 <section id="projects">
   <h2 class="section-title">Key Projects</h2>
 
-  <div class="project-card">
-    <h3 class="project-title">Driver Drowsiness Detection System</h3>
-    <span class="project-tagline">Embedded Safety Prototype | Arduino Nano</span>
+  <details class="project-card">
+    <summary class="project-summary">
+      <h3 class="project-title">Driver Drowsiness Detection System</h3>
+      <span class="project-tagline">Embedded Safety Prototype | Arduino Nano</span>
+    </summary>
     
-    <p class="project-desc">
-      Engineered a real-time safety device using <strong>Arduino Nano</strong> and IR sensors to prevent accidents caused by driver fatigue. 
-      The system monitors eye-blink patterns and triggers an auditory alarm if drowsiness thresholds are exceeded.
-    </p>
-
-    <div class="tech-stack">
-      <span class="tech-badge">C++</span>
-      <span class="tech-badge">Embedded Systems</span>
-      <span class="tech-badge">Sensors</span>
+    <div class="project-content">
+      <p class="project-desc">
+        Engineered a real-time safety device using <strong>Arduino Nano</strong> and IR sensors to prevent accidents caused by driver fatigue. 
+        The system monitors eye-blink patterns and triggers an auditory alarm if drowsiness thresholds are exceeded.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-badge">C++</span>
+        <span class="tech-badge">Embedded Systems</span>
+        <span class="tech-badge">Sensors</span>
+      </div>
     </div>
-  </div>
+  </details>
 
-  <div class="project-card">
-    <h3 class="project-title">Personal Engineering Portfolio</h3>
-    <span class="project-tagline">Web Development</span>
+  <details class="project-card">
+    <summary class="project-summary">
+      <h3 class="project-title">Personal Engineering Portfolio</h3>
+      <span class="project-tagline">Web Development</span>
+    </summary>
     
-    <p class="project-desc">
-      Designed and deployed a responsive personal website to showcase engineering competencies, utilizing HTML, CSS, and version control.
-    </p>
-    
-    <div class="tech-stack">
-      <span class="tech-badge">HTML5</span>
-      <span class="tech-badge">CSS3</span>
-      <span class="tech-badge">Git</span>
+    <div class="project-content">
+      <p class="project-desc">
+        Designed and deployed a responsive personal website to showcase engineering competencies, utilizing HTML, CSS, and version control.
+        Focuses on clean UI/UX and dark mode aesthetics.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-badge">HTML5</span>
+        <span class="tech-badge">CSS3</span>
+        <span class="tech-badge">Git</span>
+      </div>
     </div>
-  </div>
+  </details>
 
 </section>
 
@@ -566,6 +649,7 @@ details[open] summary {
 
 </body>
 </html>
+
 
 
 
