@@ -296,7 +296,102 @@ details[open] summary {
 .profile-pic {
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
+/* --- General Theme Variables --- */
+:root {
+  --bg-color: #0f0f11;       /* Deep dark background */
+  --card-bg: #1a1a1d;        /* Slightly lighter for cards */
+  --accent: #7c4dff;         /* Purple accent */
+  --text-main: #ffffff;
+  --text-muted: #a1a1aa;
+}
 
+/* --- The Tools Section Layout --- */
+.tools-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns side-by-side */
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* On mobile, stack them vertically */
+@media (max-width: 600px) {
+  .tools-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tool-category h4 {
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.button-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tool-btn {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid #333;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: default;
+  transition: all 0.2s ease;
+}
+
+.tool-btn:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(124, 77, 255, 0.2);
+}
+
+/* --- The Project Card Style --- */
+.project-card {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent); /* Purple strip on left */
+  margin-bottom: 15px;
+}
+
+.project-title {
+  color: var(--text-main);
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.project-tagline {
+  color: var(--accent);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.project-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.tech-stack {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.tech-badge {
+  font-size: 0.75rem;
+  background: #2a2a30;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #ccc;
+}
 
   </style>
 </head>
@@ -343,66 +438,78 @@ details[open] summary {
   <div class="skill">Computational Logic</div>
 </div>
 
-    </section>
-    <section class="reveal">
-  <h3>Tools & Software</h3>
-  <div class="skills">
-    <div class="skill">CATIA</div>
-    <div class="skill">SolidWorks</div>
-    <div class="skill">Revit</div>
-    <div class="skill">HTML</div>
-    <div class="skill">CSS</div>
-    <div class="skill">GitHub</div>
+   <section id="tools">
+  <h2 class="section-title">Tools & Software</h2>
+  
+  <div class="tools-container">
+    
+    <div class="tool-category">
+      <h4>Engineering & Design</h4>
+      <div class="button-grid">
+        <div class="tool-btn">CATIA V5</div>
+        <div class="tool-btn">SolidWorks</div>
+        <div class="tool-btn">Revit</div>
+        <div class="tool-btn">AutoCAD</div>
+      </div>
+    </div>
+
+    <div class="tool-category">
+      <h4>Development & Code</h4>
+      <div class="button-grid">
+        <div class="tool-btn">HTML5 & CSS3</div>
+        <div class="tool-btn">GitHub</div>
+        <div class="tool-btn">Arduino (C++)</div>
+        <div class="tool-btn">Python</div>
+      </div>
+    </div>
+
   </div>
 </section>
-<section class="reveal">
-  <h3>Design & Modeling</h3>
 
-  <p>
-    Learning to translate mechanical concepts into clear, manufacturable models
-    using CAD and BIM tools.Transforming conceptual mechanical ideas into robust, manufacturable 3D models. Proficient in industry-standard CAD and BIM workflows to ensure design accuracy and feasibility.
+<section id="design-modeling">
+  <h2 class="section-title">Design & Modeling</h2>
+  <p style="color: #a1a1aa; line-height: 1.6;">
+    Transforming conceptual mechanical ideas into robust, manufacturable 3D models. 
+    Proficient in translating complex geometries into digital twins using industry-standard CAD and BIM workflows.
   </p>
+  
+  </section>
 
-  <div class="skills">
-    <div class="skill">CATIA</div>
-    <div class="skill">SolidWorks</div>
-    <div class="skill">Revit</div>
-  </div>
-</section>
+<section id="projects">
+  <h2 class="section-title">Key Projects</h2>
 
-
-    <section class="reveal">
-
-      <h3>Projects</h3>
-      <div class="projects">
-        <div class="project">
-          <h4>Academic Mini Projects</h4>
-          <p>Projects developed during diploma and degree coursework.</p>
-        </div>
-
-       <div class="project">
-  <h4>Personal Learning Projects</h4>
-
-  <details>
-    <summary>Personal Engineering Portfolio Website</summary>
-
-    <p style="margin-top: 8px;">
-      Designed and developed a personal website to document learning,
-      projects, and growth in mechanical engineering, CAD, and computing.
+  <div class="project-card">
+    <h3 class="project-title">Driver Drowsiness Detection System</h3>
+    <span class="project-tagline">Embedded Safety Prototype | Arduino Nano</span>
+    
+    <p class="project-desc">
+      Engineered a real-time safety device using <strong>Arduino Nano</strong> and IR sensors to prevent accidents caused by driver fatigue. 
+      The system monitors eye-blink patterns and triggers an auditory alarm if drowsiness thresholds are exceeded.
     </p>
 
-    <div class="skills">
-      <div class="skill">HTML</div>
-      <div class="skill">CSS</div>
-      <div class="skill">Basic JavaScript</div>
-      <div class="skill">GitHub Pages</div>
-      <div class="skill">UI & content structuring</div>
+    <div class="tech-stack">
+      <span class="tech-badge">C++</span>
+      <span class="tech-badge">Embedded Systems</span>
+      <span class="tech-badge">Sensors</span>
     </div>
-  </details>
-</div>
+  </div>
 
+  <div class="project-card">
+    <h3 class="project-title">Personal Engineering Portfolio</h3>
+    <span class="project-tagline">Web Development</span>
+    
+    <p class="project-desc">
+      Designed and deployed a responsive personal website to showcase engineering competencies, utilizing HTML, CSS, and version control.
+    </p>
+    
+    <div class="tech-stack">
+      <span class="tech-badge">HTML5</span>
+      <span class="tech-badge">CSS3</span>
+      <span class="tech-badge">Git</span>
+    </div>
+  </div>
 
-    </section>
+</section>
 
     <section class="reveal">
 
@@ -459,6 +566,7 @@ details[open] summary {
 
 </body>
 </html>
+
 
 
 
