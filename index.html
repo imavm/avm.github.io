@@ -469,6 +469,36 @@ details[open] summary.project-summary::after {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+    /* --- SCROLL ANIMATION STYLES --- */
+
+/* 1. The Starting State (Hidden) */
+.scroll-card {
+  opacity: 0;                /* Invisible */
+  transform: translateY(50px); /* Pushed down 50px */
+  transition: all 0.6s ease-out; /* Smooth transition speed */
+}
+
+/* 2. The Ending State (Visible) */
+/* JavaScript will add this class when the element is on screen */
+.scroll-card.active {
+  opacity: 1;                /* Fully visible */
+  transform: translateY(0);    /* Back to original position */
+}
+
+/* --- CARD STYLING (To make them look good) --- */
+.scroll-card {
+  /* General Card Look */
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  margin-bottom: 20px;
+}
+
+.project-title { font-size: 1.1rem; font-weight: bold; color: #fff; margin: 0; }
+.project-tagline { color: var(--accent); font-size: 0.85rem; display: block; margin-bottom: 10px; }
+.project-desc { color: #a1a1aa; font-size: 0.9rem; line-height: 1.5; }
+.tech-badge { font-size: 0.75rem; background: #333; padding: 4px 8px; border-radius: 4px; color: #ccc; margin-right:5px;}
   </style>
 </head>
 
@@ -514,12 +544,12 @@ details[open] summary.project-summary::after {
   <div class="skill">Computational Logic</div>
 </div>
 
-   <section id="tools">
+ <section id="tools">
   <h2 class="section-title">Tools & Software</h2>
   
   <div class="tools-container">
     
-    <div class="tool-category">
+    <div class="scroll-card">
       <h4>Engineering & Design</h4>
       <div class="button-grid">
         <div class="tool-btn">CATIA V5</div>
@@ -529,7 +559,7 @@ details[open] summary.project-summary::after {
       </div>
     </div>
 
-    <div class="tool-category">
+    <div class="scroll-card">
       <h4>Development & Code</h4>
       <div class="button-grid">
         <div class="tool-btn">HTML5 & CSS3</div>
@@ -542,55 +572,34 @@ details[open] summary.project-summary::after {
   </div>
 </section>
 
-<section id="design-modeling">
-  <h2 class="section-title">Design & Modeling</h2>
-  <p style="color: #a1a1aa; line-height: 1.6;">
-    Transforming conceptual mechanical ideas into robust, manufacturable 3D models. 
-    Proficient in translating complex geometries into digital twins using industry-standard CAD and BIM workflows.
-  </p>
-  
-  </section>
 
 <section id="projects">
   <h2 class="section-title">Key Projects</h2>
 
-  <details class="project-card">
-    <summary class="project-summary">
-      <h3 class="project-title">Driver Drowsiness Detection System</h3>
-      <span class="project-tagline">Embedded Safety Prototype | Arduino Nano</span>
-    </summary>
-    
-    <div class="project-content">
-      <p class="project-desc">
-        Engineered a real-time safety device using <strong>Arduino Nano</strong> and IR sensors to prevent accidents caused by driver fatigue. 
-        The system monitors eye-blink patterns and triggers an auditory alarm if drowsiness thresholds are exceeded.
-      </p>
-      <div class="tech-stack">
-        <span class="tech-badge">C++</span>
-        <span class="tech-badge">Embedded Systems</span>
-        <span class="tech-badge">Sensors</span>
-      </div>
+  <div class="scroll-card project-card-style">
+    <h3 class="project-title">Driver Drowsiness System</h3>
+    <span class="project-tagline">Arduino Nano | Embedded Safety</span>
+    <p class="project-desc">
+      Engineered a real-time safety device using Arduino Nano and IR sensors. 
+      The system detects eye-blink patterns and triggers an alarm to prevent driver fatigue.
+    </p>
+    <div class="tech-stack">
+       <span class="tech-badge">C++</span>
+       <span class="tech-badge">Sensors</span>
     </div>
-  </details>
+  </div>
 
-  <details class="project-card">
-    <summary class="project-summary">
-      <h3 class="project-title">Personal Engineering Portfolio</h3>
-      <span class="project-tagline">Web Development</span>
-    </summary>
-    
-    <div class="project-content">
-      <p class="project-desc">
-        Designed and deployed a responsive personal website to showcase engineering competencies, utilizing HTML, CSS, and version control.
-        Focuses on clean UI/UX and dark mode aesthetics.
-      </p>
-      <div class="tech-stack">
-        <span class="tech-badge">HTML5</span>
-        <span class="tech-badge">CSS3</span>
-        <span class="tech-badge">Git</span>
-      </div>
+  <div class="scroll-card project-card-style">
+    <h3 class="project-title">Personal Portfolio</h3>
+    <span class="project-tagline">Web Development</span>
+    <p class="project-desc">
+      Designed and deployed a responsive personal website to showcase engineering competencies, utilizing HTML, CSS, and version control.
+    </p>
+    <div class="tech-stack">
+       <span class="tech-badge">HTML5</span>
+       <span class="tech-badge">CSS3</span>
     </div>
-  </details>
+  </div>
 
 </section>
 
@@ -645,10 +654,34 @@ details[open] summary.project-summary::after {
 
   window.addEventListener('scroll', revealOnScroll);
   revealOnScroll();
+  // 1. Select all elements you want to animate
+  const cards = document.querySelectorAll('.scroll-card');
+
+  // 2. Set up the observer (The "Camera" watching the elements)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // If the element is on screen...
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active'); // Add class to show it
+      } else {
+        // If the element leaves the screen...
+        entry.target.classList.remove('active'); // Remove class to hide it again
+      }
+    });
+  }, {
+    threshold: 0.15  // Trigger when 15% of the card is visible
+  });
+
+  // 3. Tell the observer to watch every card
+  cards.forEach(card => {
+    observer.observe(card);
+  });
+
 </script>
 
 </body>
 </html>
+
 
 
 
