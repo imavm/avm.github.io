@@ -499,6 +499,78 @@ details[open] summary.project-summary::after {
 .project-tagline { color: var(--accent); font-size: 0.85rem; display: block; margin-bottom: 10px; }
 .project-desc { color: #a1a1aa; font-size: 0.9rem; line-height: 1.5; }
 .tech-badge { font-size: 0.75rem; background: #333; padding: 4px 8px; border-radius: 4px; color: #ccc; margin-right:5px;}
+ 
+  /* --- 1. THE SCROLL ANIMATION (Movement) --- */
+.scroll-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  /* Note: We removed the background transition so it doesn't flash */
+}
+
+/* JavaScript adds this class when visible */
+.scroll-card.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- 2. THE CARD VISUALS (Look & Feel) --- */
+details.project-card-style {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--accent);
+  overflow: hidden;
+}
+
+/* The Clickable Header */
+summary.project-summary {
+  padding: 20px;
+  cursor: pointer;
+  position: relative;
+  list-style: none; /* Hide default triangle */
+}
+
+summary.project-summary::-webkit-details-marker { display: none; }
+
+/* The '+' Icon */
+summary.project-summary::after {
+  content: '+'; 
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+/* Rotate icon when open */
+details[open] summary.project-summary::after {
+  transform: rotate(45deg);
+}
+
+/* Content Area */
+.project-content {
+  padding: 0 20px 20px 20px;
+  border-top: 1px solid #333;
+  color: #a1a1aa;
+  line-height: 1.6;
+}
+
+/* Mini Badges in Header */
+.tech-stack-mini {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+.tech-badge {
+  font-size: 0.7rem;
+  background: #333;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #ccc;
+}
   </style>
 </head>
 
@@ -576,30 +648,41 @@ details[open] summary.project-summary::after {
 <section id="projects">
   <h2 class="section-title">Key Projects</h2>
 
-  <div class="scroll-card project-card-style">
-    <h3 class="project-title">Driver Drowsiness System</h3>
-    <span class="project-tagline">Arduino Nano | Embedded Safety</span>
-    <p class="project-desc">
-      Engineered a real-time safety device using Arduino Nano and IR sensors. 
-      The system detects eye-blink patterns and triggers an alarm to prevent driver fatigue.
-    </p>
-    <div class="tech-stack">
-       <span class="tech-badge">C++</span>
-       <span class="tech-badge">Sensors</span>
+  <details class="scroll-card project-card-style">
+    
+    <summary class="project-summary">
+      <h3 class="project-title">Driver Drowsiness System</h3>
+      <span class="project-tagline">Arduino Nano | Embedded Safety</span>
+      <div class="tech-stack-mini">
+        <span class="tech-badge">C++</span>
+        <span class="tech-badge">Sensors</span>
+      </div>
+    </summary>
+    
+    <div class="project-content">
+      <p class="project-desc">
+        Engineered a real-time safety device using Arduino Nano and IR sensors. 
+        The system detects eye-blink patterns and triggers an alarm to prevent driver fatigue.
+      </p>
     </div>
-  </div>
+  </details>
 
-  <div class="scroll-card project-card-style">
-    <h3 class="project-title">Personal Portfolio</h3>
-    <span class="project-tagline">Web Development</span>
-    <p class="project-desc">
-      Designed and deployed a responsive personal website to showcase engineering competencies, utilizing HTML, CSS, and version control.
-    </p>
-    <div class="tech-stack">
-       <span class="tech-badge">HTML5</span>
-       <span class="tech-badge">CSS3</span>
+  <details class="scroll-card project-card-style">
+    <summary class="project-summary">
+      <h3 class="project-title">Personal Portfolio</h3>
+      <span class="project-tagline">Web Development</span>
+      <div class="tech-stack-mini">
+        <span class="tech-badge">HTML5</span>
+        <span class="tech-badge">CSS3</span>
+      </div>
+    </summary>
+    
+    <div class="project-content">
+      <p class="project-desc">
+        Designed and deployed a responsive personal website to showcase engineering competencies, utilizing HTML, CSS, and version control.
+      </p>
     </div>
-  </div>
+  </details>
 
 </section>
 
@@ -681,6 +764,7 @@ details[open] summary.project-summary::after {
 
 </body>
 </html>
+
 
 
 
